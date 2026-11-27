@@ -1,0 +1,78 @@
+<div class="container">
+    <form class="example-form" [formGroup]="product">
+        <div class="field">
+            <mat-form-field class="example-full-width">
+                <mat-label>Product Name</mat-label>
+                <input type="text" matInput formControlName="productName" placeholder="Product name">
+                <!-- <mat-error>Please enter a valid email address</mat-error>
+                <mat-error>Email is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="field">
+            <mat-form-field class="example-full-width">
+                <mat-label>Product Price</mat-label>
+                <input type="number" matInput formControlName="productPrice" placeholder="Product Price">
+                <!-- <mat-error>Please enter a valid email address</mat-error>
+                <mat-error>Email is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="field">
+            <mat-form-field class="example-full-width">
+                <mat-label>Product Quantity</mat-label>
+                <input type="number" matInput formControlName="productQuantity" placeholder="Product Quantity">
+                <!-- <mat-error>Please enter a valid email address</mat-error>
+                <mat-error>Email is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="field">
+            <mat-form-field class="example-full-width">
+                <mat-label>Product Category</mat-label>
+                <input type="text" matInput formControlName="productCategory" placeholder="Product Category">
+                <!-- <mat-error>Please enter a valid email address</mat-error>
+                <mat-error>Email is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+        </div>
+
+        <button matButton="filled" (click)="saveProduct()">Save</button>
+    </form>
+
+    <div class="product-table">
+        <table mat-table [dataSource]="dataSource" class="mat-shadow-2">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="productName">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="productPrice">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.productPrice}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="productQuantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.productQuantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="productCategory">
+                <th mat-header-cell *matHeaderCellDef> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.productCategory}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="productDescription">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.productDescription}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
